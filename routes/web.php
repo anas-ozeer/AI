@@ -1,7 +1,9 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AIController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', [AIController::class, 'view'])->name('dashboard');
+
+Route::post('/', [AIController::class, 'generate'])->name('ai.generate');
