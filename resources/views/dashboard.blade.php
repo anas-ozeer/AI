@@ -16,15 +16,13 @@
                 event.preventDefault(); // Prevent the default form submission
 
                 // Display loading message
-                $('#response').html('<div>Loading...</div>');
+                $('#response').html('<div>Generating Prompt...</div>');
 
                 $.ajax({
                     url: $(this).attr('action'),
                     method: $(this).attr('method'),
                     data: $(this).serialize(),
                     success: function(response) {
-                        console.log(response);
-
                         try {
                             if (response.error) {
                                 $('#response').html('<div>' + response.error + '</div>');
